@@ -1,6 +1,8 @@
 scheduled job
 =======
 
+[![Travis (.org)](https://img.shields.io/travis/mattmezza/php-scheduled-job.svg)](https://github.com/mattmezza/php-scheduled-job)
+
 ## Installation
 
 `composer require mattmezza/scheduled-job`
