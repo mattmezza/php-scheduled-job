@@ -50,7 +50,7 @@ class MyJob extends JobStandard {
 (new JobExecutorStandard())->execute($job, $argv]);
 ```
 
-##### Observing jobs and tasks
+##### 4. Observe jobs and tasks
 
 You can attach observers to both jobs and tasks.
 
@@ -60,6 +60,31 @@ $task->addObserver(new TaskLogger());
 ```
 
 You can define custom observers by implementing `JobObserver` and `TaskObserver`.
+
+##### 5. Automate with cron
+
+Create a PHP script file that you can run via cron `~/your-project/your-job.php`:
+
+```php
+#!/usr/bin/env php
+
+<?php
+
+$job = ... # create the job as above
+
+try {
+    (new JobExecutorStandard())->execute($job, $argv]);
+} catch (YourException $error) {
+    // Oops, something happened...
+}
+```
+
+Add the cron entry in the crontab via `crontab -e`:
+
+```
+# run five minutes after midnight, every day 
+5 0 * * * $HOME/your-project/your-job.php >> $HOME/tmp/out 2>&1
+```
 
 ## Development
 
