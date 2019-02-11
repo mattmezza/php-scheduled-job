@@ -1,0 +1,28 @@
+{
+    "name": "mattmezza/scheduled-job",
+    "description": "A package to run scheduled job with cron.",
+    "version": "1.0.0",
+    "require": {
+        "php": "^7.1",
+        "mattmezza/logger": "^1.0",
+        "vlucas/phpdotenv": "^2.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matteo Merola",
+            "email": "mattmezza@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "scheduled\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit --bootstrap ./vendor/autoload.php tests/TestJobStandard.php"
+    }
+}
